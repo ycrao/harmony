@@ -22,8 +22,11 @@ text-word
 
 ### java-sln
 
+参考拷贝 [AnthonyZero/text-processor](https://github.com/AnthonyZero/text-processor) 相关代码实现，它引入外部依赖，一个基于双数组Trie树的AC自动机实现，效率较高，请查看 [AhoCorasickDoubleArrayTrie](https://github.com/hankcs/AhoCorasickDoubleArrayTrie) 了解更多。
 
-[TODO]
+关于AC自动机及失配指针等概念已故前端大佬司徒正美的[这篇文章](https://zhuanlan.zhihu.com/p/80325757)比较易懂。
+
+![java_sln_snapshot_1](snapshots/java-sln-1.png)
 
 ### js-sln
 
