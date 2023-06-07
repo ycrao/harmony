@@ -19,6 +19,7 @@ public class SensitiveWordConfig {
     @Primary
     @Bean(destroyMethod = "clear")
     public SensitiveWordFilter trieSensitiveWordFilter() {
+        // TODO 可以做一些初始化词库的动作，参考测试用例代码
         return new TrieSensitiveWordFilter();
     }
 }

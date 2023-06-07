@@ -24,6 +24,9 @@ public class TrieSensitiveWordFilter implements SensitiveWordFilter {
      * 纯英文字母与数字组合正则模式
      */
     private static final Pattern PATTERN = Pattern.compile("[a-z1-9]+", Pattern.CASE_INSENSITIVE);
+    /**
+     * 并发锁
+     */
     private static final CountDownLatch INIT_LOCK = new CountDownLatch(1);
 
     private final AtomicReference<AhoCorasickDoubleArrayTrie<String>> prefix = new AtomicReference<>();
@@ -53,7 +56,9 @@ public class TrieSensitiveWordFilter implements SensitiveWordFilter {
         if (keywords == null) {
             return;
         }
+        // ac 前缀树 存放所有词汇
         AhoCorasickDoubleArrayTrie<String> localPrefix = new AhoCorasickDoubleArrayTrie<>();
+        // ac 前缀树 存放英文词汇
         AhoCorasickDoubleArrayTrie<String> localExact = new AhoCorasickDoubleArrayTrie<>();
         Map<String, String> map = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         Map<String, String> words = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
